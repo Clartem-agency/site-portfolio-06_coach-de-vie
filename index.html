@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julien Leroux - Coaching pour professionnels en quête de sens et d'équilibre | L'Architecte de la Clarté
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Small custom styles can be added here if needed */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #364049; /* Default text color */
+        }
+        .bg-gradient-section {
+            background: linear-gradient(180deg, #fafaf9 0%, #ffffff 100%);
+        }
+        .bg-gradient-calm {
+             background: linear-gradient(135deg, #e3efe9 0%, #d5e6e4 100%);
+        }
+        .shadow-soft {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+        }
+         .shadow-card {
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -4px rgba(0,0,0,0.05);
+        }
+        .transition-smooth {
+             transition: all 0.3s ease-in-out;
+        }
+    </style>
+    <script>
+        // Custom Tailwind CSS Configuration
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#436170',
+                        'primary-foreground': '#ffffff',
+                        'secondary': '#e2e7e9',
+                        'secondary-foreground': '#364049',
+                        'accent': '#9fc8cc',
+                        'accent-foreground': '#ffffff',
+                        'background': '#ffffff',
+                        'foreground': '#21262c',
+                        'muted': {
+                           DEFAULT: '#f9fafb',
+                           'foreground': '#73808c'
+                        },
+                        'card': '#ffffff',
+                        'border': 'rgba(0,0,0,0.08)',
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05)',
+                        'card': '0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -4px rgba(0,0,0,0.05)',
+                        'button': '0 4px 14px 0 rgba(0,0,0,0.1)'
+                    },
+                    transitionProperty: {
+                        'smooth': 'all',
+                    },
+                    transitionDuration: {
+                        'smooth': '300ms',
+                    },
+                    transitionTimingFunction: {
+                        'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-background">
+
+    <div id="root" class="min-h-screen">
+        <!-- =========== Navigation Bar =========== -->
+        <nav id="navbar" class="fixed top-0 w-full z-50 transition-smooth">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex items-center justify-between h-16">
+                    <!-- Logo / Site Title -->
+                    <a href="#hero" class="font-bold text-lg transition-colors text-primary">
+                        Julien Leroux
+                        <span class="block text-sm font-normal text-muted-foreground">L'Architecte de la Clarté</span>
+                    </a>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#a-propos" class="font-medium transition-colors hover:text-accent text-foreground">À Propos</a>
+                        <a href="#accompagnements" class="font-medium transition-colors hover:text-accent text-foreground">Accompagnements</a>
+                        <a href="#approche" class="font-medium transition-colors hover:text-accent text-foreground">Mon Approche</a>
+                        <a href="#temoignages" class="font-medium transition-colors hover:text-accent text-foreground">Témoignages</a>
+                        <a href="#faq" class="font-medium transition-colors hover:text-accent text-foreground">FAQ</a>
+                        <a href="#contact" class="font-medium transition-colors hover:text-accent text-foreground">Contact</a>
+                        <a href="#contact" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-10 px-4 py-2 bg-primary text-primary-foreground hover:bg-primary/90">
+                          Réserver un appel
+                        </a>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="md:hidden p-2 transition-colors text-foreground">
+                        <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                            <line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line>
+                        </svg>
+                        <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 hidden">
+                           <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+             <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md shadow-soft pb-4">
+                <div class="px-6 pt-2 pb-3 space-y-2 flex flex-col items-center">
+                    <a href="#a-propos" class="block font-medium transition-colors hover:text-accent text-foreground py-2">À Propos</a>
+                    <a href="#accompagnements" class="block font-medium transition-colors hover:text-accent text-foreground py-2">Accompagnements</a>
+                    <a href="#approche" class="block font-medium transition-colors hover:text-accent text-foreground py-2">Mon Approche</a>
+                    <a href="#temoignages" class="block font-medium transition-colors hover:text-accent text-foreground py-2">Témoignages</a>
+                    <a href="#faq" class="block font-medium transition-colors hover:text-accent text-foreground py-2">FAQ</a>
+                    <a href="#contact" class="block font-medium transition-colors hover:text-accent text-foreground py-2">Contact</a>
+                    <a href="#contact" class="mt-4 w-full text-center inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-10 px-4 py-2 bg-primary text-primary-foreground hover:bg-primary/90">
+                      Réserver un appel
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div class="h-16"></div> <!-- Spacer for fixed nav -->
+
+        <!-- =========== Hero Section =========== -->
+        <div id="hero">
+            <section class="relative min-h-screen flex items-center justify-center overflow-hidden text-white">
+                <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/assets/hero-background-qGa0AzDM.jpg');"></div>
+                <div class="absolute inset-0 bg-primary/40"></div>
+                <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        Redéfinissez votre réussite.<br>
+                        <span class="text-white/80">Créez une vie alignée.</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-12 text-white/90 max-w-3xl mx-auto leading-relaxed">
+                        Le coaching pour les professionnels et dirigeants qui veulent allier performance et épanouissement, sans sacrifier l'un pour l'autre.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                        <a href="#contact" class="inline-flex items-center justify-center rounded-md bg-white text-primary hover:bg-white/90 shadow-button font-semibold px-8 py-3 text-lg transition-smooth h-auto">Faire le premier pas</a>
+                        <a href="#approche" class="inline-flex items-center justify-center rounded-md border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary shadow-button font-semibold px-8 py-3 text-lg transition-smooth h-auto">Découvrir mon approche</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- =========== About Section =========== -->
+        <div id="a-propos">
+            <section class="py-24 bg-gradient-section">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-foreground">Mon Chemin vers la Clarté</h2>
+                    </div>
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <div class="flex justify-center lg:justify-end">
+                            <div class="overflow-hidden shadow-card rounded-lg max-w-md">
+                                <div class="p-0">
+                                    <img src="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/assets/julien-portrait-D77d-6J0.jpg" alt="Julien Leroux, coach certifié" class="w-full h-auto object-cover">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="space-y-6 text-foreground/90 leading-relaxed text-lg">
+                                <p>Pendant plus de 15 ans, j'ai été consultant en stratégie pour de grands groupes. J'ai coché toutes les cases du succès : les responsabilités, la reconnaissance, le salaire. Pourtant, au fond de moi, un sentiment de décalage grandissait. Je passais mes journées à optimiser des systèmes pour les autres, tout en sentant que le mien était profondément désaligné.</p>
+                                <p>Le déclic fut un burn-out. Ce moment de rupture m'a forcé à faire ce que je n'avais jamais pris le temps de faire : une pause. J'ai alors compris que la vraie performance ne réside pas dans l'agitation, mais dans l'alignement. Cette prise de conscience a été le début de ma plus grande transformation. J'ai quitté mon poste, je me suis formé auprès des meilleures écoles de coaching et j'ai découvert ma véritable mission : accompagner ceux qui, comme moi hier, se sentent prisonniers d'une réussite qui ne les nourrit plus.</p>
+                                <p>Aujourd'hui, je suis "L'Architecte de la Clarté". J'allie mon pragmatisme d'ancien consultant à une écoute profonde et sans jugement pour vous aider à dessiner les plans de votre propre épanouissement. Mon engagement est simple : vous offrir un espace de confiance absolue pour déconstruire vos blocages et bâtir, pas à pas, une vie où succès rime enfin avec sens.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- =========== Services Section =========== -->
+        <div id="accompagnements">
+            <section class="py-24 bg-background">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-foreground">Des Parcours pour Retrouver la Clarté</h2>
+                        <p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                            Chaque parcours est une collaboration unique. Je ne propose pas de solutions toutes faites, mais des cadres structurés pour vous permettre de trouver vos propres réponses et de passer à l'action.
+                        </p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Service Card 1: Fondations -->
+                        <div class="rounded-lg border border-border bg-card text-card-foreground shadow-card hover:shadow-lg transition-smooth flex flex-col">
+                            <div class="flex flex-col space-y-1.5 p-6 text-center pb-4">
+                                <h3 class="font-semibold tracking-tight text-2xl mb-2 text-foreground">Séance "Fondations"</h3>
+                                <p class="text-muted-foreground text-sm">Une séance unique et intensive de 90 minutes pour débloquer une situation précise, prendre une décision importante ou clarifier un objectif. Idéal pour un premier pas vers le changement.</p>
+                            </div>
+                            <div class="p-6 pt-0 space-y-6 flex-grow flex flex-col">
+                                <ul class="space-y-3 flex-grow">
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-1 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="text-sm text-foreground/80">Un échange préparatoire pour cibler votre besoin</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-1 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="text-sm text-foreground/80">Une séance de 90 minutes en visio ou en cabinet</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-1 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="text-sm text-foreground/80">Exploration profonde de votre problématique</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-1 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="text-sm text-foreground/80">Co-création d'un plan d'action concret et activable</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-1 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="text-sm text-foreground/80">Un compte-rendu de séance pour ancrer les prises de conscience</span></li>
+                                </ul>
+                                <div class="text-center pt-4 border-t border-border mt-auto">
+                                    <div class="text-2xl font-bold mb-2 text-foreground">250€</div>
+                                    <div class="text-muted-foreground mb-4 text-sm">Séance de 90 min</div>
+                                    <a href="#contact" class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 w-full bg-primary text-primary-foreground hover:bg-primary/90">Réserver ma Séance Fondations</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 2: Clarté (Recommended) -->
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-card hover:shadow-lg transition-smooth relative border-2 border-accent flex flex-col">
+                             <div class="inline-flex items-center rounded-full border text-xs font-semibold absolute -top-3 left-1/2 transform -translate-x-1/2 bg-accent text-accent-foreground px-4 py-1">RECOMMANDÉ</div>
+                            <div class="flex flex-col space-y-1.5 p-6 text-center pb-4 pt-8">
+                                <h3 class="font-semibold tracking-tight text-2xl mb-2 text-foreground">Parcours "Clarté"</h3>
+                                <p class="text-muted-foreground text-sm">Un accompagnement sur 3 mois pour une transformation en profondeur. Nous allons au-delà du "quoi" pour explorer le "pourquoi" et le "comment". Le parcours idéal pour repenser votre carrière, trouver votre équilibre et vous réaligner durablement.</p>
+                            </div>
+                            <div class="p-6 pt-0 space-y-6 flex-grow flex flex-col">
+                                <ul class="space-y-3 flex-grow">
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-1 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="text-sm text-foreground/80">Une séance de cadrage de 2h pour définir votre vision</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-1 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="text-sm text-foreground/80">6 séances de coaching de 60 minutes (bimensuelles)</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-1 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="text-sm text-foreground/80">Des outils et exercices personnalisés entre chaque séance</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-1 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="text-sm text-foreground/80">Un suivi par email illimité durant tout l'accompagnement</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-1 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="text-sm text-foreground/80">Une séance de bilan pour mesurer le chemin parcouru et célébrer vos réussites</span></li>
+                                </ul>
+                                <div class="text-center pt-4 border-t border-border mt-auto">
+                                    <div class="text-2xl font-bold mb-2 text-foreground">1500€</div>
+                                    <div class="text-muted-foreground mb-4 text-sm">Parcours de 3 mois</div>
+                                    <a href="#contact" class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 w-full text-primary-foreground bg-accent hover:bg-accent/90">Commencer mon Parcours Clarté</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 3: Signature -->
+                        <div class="rounded-lg border border-border bg-card text-card-foreground shadow-card hover:shadow-lg transition-smooth flex flex-col">
+                            <div class="flex flex-col space-y-1.5 p-6 text-center pb-4">
+                                <h3 class="font-semibold tracking-tight text-2xl mb-2 text-foreground">Accompagnement "Signature"</h3>
+                                <p class="text-muted-foreground text-sm">Un partenariat sur 6 à 12 mois pour les dirigeants et entrepreneurs qui souhaitent non seulement transformer leur propre vie, mais aussi insuffler une nouvelle dynamique de leadership authentique au sein de leur organisation.</p>
+                            </div>
+                            <div class="p-6 pt-0 space-y-6 flex-grow flex flex-col">
+                                <ul class="space-y-3 flex-grow">
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-1 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="text-sm text-foreground/80">Un processus entièrement sur-mesure co-construit ensemble</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-1 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="text-sm text-foreground/80">Accompagnement intensif et flexible (séances, appels, observations...)</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-1 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="text-sm text-foreground/80">Travail sur la posture de leader, la vision stratégique et l'équilibre personnel</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-1 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="text-sm text-foreground/80">Accès direct et prioritaire à mon agenda</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-1 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="text-sm text-foreground/80">Confidentialité et engagement absolus</span></li>
+                                </ul>
+                                <div class="text-center pt-4 border-t border-border mt-auto">
+                                    <div class="text-2xl font-bold mb-2 text-foreground">Sur devis</div>
+                                    <div class="text-muted-foreground mb-4 text-sm">Accompagnement de 6 à 12 mois</div>
+                                    <a href="#contact" class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 w-full bg-secondary text-secondary-foreground hover:bg-secondary/80">Discuter de l'Accompagnement Signature</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- =========== Approach Section =========== -->
+        <div id="approche">
+            <section class="py-24 bg-gradient-section">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-foreground">Notre Chemin Ensemble, Pas à Pas</h2>
+                        <p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                            Pour que vous puissiez vous engager en toute sérénité, chaque accompagnement suit un cadre clair, bienveillant et structuré. Voici les grandes étapes de notre collaboration.
+                        </p>
+                    </div>
+                    <div class="space-y-8 max-w-4xl mx-auto">
+                         <!-- Step 1 -->
+                        <div class="rounded-lg border border-border bg-card text-card-foreground shadow-card hover:shadow-lg transition-smooth">
+                            <div class="p-6 flex flex-row items-start space-y-0 space-x-4 pb-4">
+                                <div class="bg-accent/10 p-3 rounded-lg shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-accent"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold tracking-tight text-xl mb-2 text-foreground">L'Appel Clarté : Notre Première Connexion (Offert)</h3>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <p class="text-muted-foreground leading-relaxed">Tout commence par un échange de 30 minutes, confidentiel et sans engagement. C'est un moment pour faire connaissance, que vous m'exposiez votre situation en toute confiance, et que nous validions ensemble que je suis la bonne personne pour vous aider.</p>
+                            </div>
+                        </div>
+                        <!-- Step 2 -->
+                         <div class="rounded-lg border border-border bg-card text-card-foreground shadow-card hover:shadow-lg transition-smooth">
+                            <div class="p-6 flex flex-row items-start space-y-0 space-x-4 pb-4">
+                                <div class="bg-accent/10 p-3 rounded-lg shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-accent"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold tracking-tight text-xl mb-2 text-foreground">Les Séances de Co-Construction : Le Cœur de la Transformation</h3>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <p class="text-muted-foreground leading-relaxed">Au fil de nos séances, je vous guide à travers un questionnement puissant et des outils pragmatiques pour lever vos blocages. Je ne vous donne pas les réponses, je vous aide à trouver les vôtres. Chaque séance se termine par un plan d'action clair pour avancer concrètement entre nos rendez-vous.</p>
+                            </div>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="rounded-lg border border-border bg-card text-card-foreground shadow-card hover:shadow-lg transition-smooth">
+                            <div class="p-6 flex flex-row items-start space-y-0 space-x-4 pb-4">
+                                <div class="bg-accent/10 p-3 rounded-lg shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-accent"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold tracking-tight text-xl mb-2 text-foreground">L'Ancrage : Votre Envol en Autonomie</h3>
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <p class="text-muted-foreground leading-relaxed">À la fin de notre parcours, nous célébrons vos progrès et nous nous assurons que vous avez toutes les clés en main pour continuer votre chemin avec confiance et sérénité. Mon but ultime est de vous rendre totalement autonome dans la poursuite de vos objectifs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- =========== Testimonials Section =========== -->
+        <div id="temoignages">
+            <section class="py-24 bg-background">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-foreground">Leurs Histoires, Leurs Transformations</h2>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Testimonial 1 -->
+                        <div class="rounded-lg border border-border bg-card text-card-foreground shadow-card hover:shadow-lg transition-smooth">
+                            <div class="flex flex-col space-y-1.5 p-6 text-center pb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-accent mx-auto mb-4"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2S6 3.75 6 5v8c0 3.5 2.5 4.4 5 5Z"></path><path d="M14 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2s-2 1.25-2 3v8c0 3.5 2.5 4.4 5 5Z"></path></svg>
+                                <img src="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/assets/testimonial-marc-DrOiIEli.jpg" alt="Marc D." class="w-20 h-20 rounded-full mx-auto object-cover mb-4">
+                            </div>
+                            <div class="p-6 pt-0 space-y-6">
+                                <p class="text-muted-foreground leading-relaxed italic text-center">"Avant de travailler avec Julien, j'étais directeur marketing dans un grand groupe, et complètement vidé. Je courais après des objectifs qui n'avaient plus de sens pour moi. Grâce à son approche structurée et son écoute incroyable, j'ai non seulement évité le burn-out, mais j'ai surtout réussi à redéfinir mon projet de carrière. J'ai depuis lancé ma propre agence conseil, et je n'ai jamais été aussi aligné."</p>
+                                <div class="text-center pt-4 border-t border-border">
+                                    <h4 class="font-semibold text-foreground">Marc D.</h4>
+                                    <p class="text-sm text-muted-foreground">Entrepreneur (anciennement Directeur Marketing)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial 2 -->
+                        <div class="rounded-lg border border-border bg-card text-card-foreground shadow-card hover:shadow-lg transition-smooth">
+                            <div class="flex flex-col space-y-1.5 p-6 text-center pb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-accent mx-auto mb-4"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2S6 3.75 6 5v8c0 3.5 2.5 4.4 5 5Z"></path><path d="M14 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2s-2 1.25-2 3v8c0 3.5 2.5 4.4 5 5Z"></path></svg>
+                                <img src="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/assets/testimonial-anne-CXZzw5Ar.jpg" alt="Anne L." class="w-20 h-20 rounded-full mx-auto object-cover mb-4">
+                            </div>
+                            <div class="p-6 pt-0 space-y-6">
+                                <p class="text-muted-foreground leading-relaxed italic text-center">"J'avais l'impression d'être une imposture. J'avais obtenu un poste de direction, mais j'étais paralysée par la peur de ne pas être à la hauteur. Julien m'a donné des outils concrets pour gérer mon stress et déconstruire mes croyances limitantes. Aujourd'hui, je me sens légitime, j'ose prendre ma place et mon leadership est reconnu. C'est bien plus qu'un coaching, c'est une libération."</p>
+                                <div class="text-center pt-4 border-t border-border">
+                                    <h4 class="font-semibold text-foreground">Anne L.</h4>
+                                    <p class="text-sm text-muted-foreground">Directrice des Opérations</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial 3 -->
+                        <div class="rounded-lg border border-border bg-card text-card-foreground shadow-card hover:shadow-lg transition-smooth">
+                            <div class="flex flex-col space-y-1.5 p-6 text-center pb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-accent mx-auto mb-4"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2S6 3.75 6 5v8c0 3.5 2.5 4.4 5 5Z"></path><path d="M14 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2s-2 1.25-2 3v8c0 3.5 2.5 4.4 5 5Z"></path></svg>
+                                <img src="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/assets/testimonial-sophie-Da7y_Bq9.jpg" alt="Sophie T." class="w-20 h-20 rounded-full mx-auto object-cover mb-4">
+                            </div>
+                            <div class="p-6 pt-0 space-y-6">
+                                <p class="text-muted-foreground leading-relaxed italic text-center">"Je voulais tout changer, mais je ne savais pas par où commencer. J'étais perdue. Le parcours 'Clarté' avec Julien a été une révélation. Il m'a aidé à mettre des mots sur mes aspirations profondes et à construire un plan d'action réaliste. J'ai enfin osé lancer le projet qui me tenait à cœur depuis des années. Merci pour ce formidable coup d'accélérateur."</p>
+                                <div class="text-center pt-4 border-t border-border">
+                                    <h4 class="font-semibold text-foreground">Sophie T.</h4>
+                                    <p class="text-sm text-muted-foreground">Cheffe de projet en reconversion</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- =========== FAQ Section =========== -->
+        <div id="faq">
+            <section class="py-24 bg-gradient-section">
+                <div class="max-w-4xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-foreground">Vos Questions, Mes Réponses</h2>
+                    </div>
+                    <div id="accordion-container" class="space-y-4">
+                        <!-- FAQ Item 1 -->
+                        <div class="accordion-item border border-border rounded-lg px-6 bg-card shadow-soft">
+                            <h3 class="flex">
+                                <button class="accordion-trigger flex flex-1 items-center justify-between transition-all py-6 text-left font-semibold text-foreground hover:no-underline">
+                                    Quelle est la différence entre votre coaching et du conseil en stratégie ?
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 transition-transform duration-200">
+                                        <path d="m6 9 6 6 6-6"></path>
+                                    </svg>
+                                </button>
+                            </h3>
+                            <div class="accordion-content overflow-hidden text-sm transition-all max-h-0">
+                                <p class="text-muted-foreground leading-relaxed pb-6 pt-0">C'est une excellente question, issue de mon propre parcours. Un consultant analyse une situation et vous donne des recommandations. Un coach, lui, ne vous donne pas les réponses. Grâce à un questionnement puissant, je vous aide à trouver VOS propres solutions, celles qui sont parfaitement alignées avec qui vous êtes. Le changement vient de vous, ce qui le rend bien plus durable.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 2 -->
+                        <div class="accordion-item border border-border rounded-lg px-6 bg-card shadow-soft">
+                            <h3 class="flex">
+                                <button class="accordion-trigger flex flex-1 items-center justify-between transition-all py-6 text-left font-semibold text-foreground hover:no-underline">
+                                    Je n'ai pas beaucoup de temps, est-ce que le coaching est adapté ?
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 transition-transform duration-200">
+                                        <path d="m6 9 6 6 6-6"></path>
+                                    </svg>
+                                </button>
+                            </h3>
+                            <div class="accordion-content overflow-hidden text-sm transition-all max-h-0">
+                                <p class="text-muted-foreground leading-relaxed pb-6 pt-0">Absolument. Le coaching est conçu pour les personnes actives. Il ne s'agit pas de "rajouter" du travail, mais de rendre le temps que vous y consacrez extrêmement efficace. Nos séances sont des moments de concentration intense qui vous feront gagner un temps précieux en évitant des mois d'hésitation et de mauvaises décisions.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 3 -->
+                        <div class="accordion-item border border-border rounded-lg px-6 bg-card shadow-soft">
+                            <h3 class="flex">
+                                <button class="accordion-trigger flex flex-1 items-center justify-between transition-all py-6 text-left font-semibold text-foreground hover:no-underline">
+                                    Comment se déroule une séance type ?
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 transition-transform duration-200">
+                                        <path d="m6 9 6 6 6-6"></path>
+                                    </svg>
+                                </button>
+                            </h3>
+                            <div class="accordion-content overflow-hidden text-sm transition-all max-h-0">
+                                <p class="text-muted-foreground leading-relaxed pb-6 pt-0">Une séance est avant tout une conversation structurée et confidentielle. Nous commençons toujours par faire le point on vos avancées depuis notre dernière rencontre. Ensuite, nous explorons en profondeur l'objectif que vous avez fixé pour la séance du jour. Je vous challenge avec bienveillance, nous identifions les blocages et nous terminons toujours par un plan d'action clair pour la suite.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 4 -->
+                        <div class="accordion-item border border-border rounded-lg px-6 bg-card shadow-soft">
+                            <h3 class="flex">
+                                <button class="accordion-trigger flex flex-1 items-center justify-between transition-all py-6 text-left font-semibold text-foreground hover:no-underline">
+                                    Est-ce que tout ce que nous dirons restera confidentiel ?
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 transition-transform duration-200">
+                                        <path d="m6 9 6 6 6-6"></path>
+                                    </svg>
+                                </button>
+                            </h3>
+                            <div class="accordion-content overflow-hidden text-sm transition-all max-h-0">
+                                <p class="text-muted-foreground leading-relaxed pb-6 pt-0">La confidentialité est le pilier de ma pratique. C'est une règle d'or non négociable. Tout ce qui est dit dans le cadre de nos séances est et restera strictement entre nous, comme le stipule le code de déontologie de la profession de coach auquel j'adhère pleinement.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- =========== Contact Section =========== -->
+        <div id="contact">
+            <section class="py-24 bg-background">
+                <div class="max-w-4xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-foreground">Prêt(e) à faire le premier pas vers la clarté ?</h2>
+                        <p class="text-xl text-muted-foreground leading-relaxed">L'échange le plus important est peut-être celui que nous n'avons pas encore eu. Réservez votre Appel Clarté offert directement dans mon agenda ci-dessous.</p>
+                    </div>
+                    <div class="rounded-lg border border-border bg-card text-card-foreground shadow-card max-w-2xl mx-auto">
+                        <div class="flex flex-col space-y-1.5 p-6 text-center pb-6">
+                            <div class="bg-accent/10 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-accent"><rect x="3" y="8" width="18" height="4" rx="1"></rect><path d="M12 8v13"></path><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"></path></svg>
+                            </div>
+                            <h3 class="font-semibold tracking-tight text-2xl mb-2 text-foreground">Appel Clarté (30 min - Offert)</h3>
+                            <p class="text-muted-foreground text-sm">Cet échange confidentiel est l'occasion de faire connaissance, de m'exposer votre situation et de voir si le courant passe entre nous. C'est le moment idéal pour poser toutes vos questions avant de vous engager.</p>
+                        </div>
+                        <div class="p-6 pt-0 space-y-6">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span class="text-sm text-foreground/80">30 minutes</span></div>
+                                <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg><span class="text-sm text-foreground/80">Disponible en visio</span></div>
+                            </div>
+                             <div class="bg-muted/50 p-6 rounded-lg space-y-4">
+                                <h4 class="font-semibold mb-3 text-foreground">Questions que je vous poserai :</h4>
+                                <ul class="space-y-2 text-sm text-muted-foreground">
+                                    <li>• En quelques mots, quel est le principal défi qui vous amène à considérer un coaching ?</li>
+                                    <li>• Qu'espérez-vous obtenir d'un accompagnement ?</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gradient-calm p-8 rounded-lg text-center">
+                                <div class="bg-white/80 p-6 rounded-lg border-2 border-dashed border-accent/30">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-accent mx-auto mb-4"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                                    <h3 class="text-lg font-semibold mb-2 text-foreground">Module de Réservation Calendly</h3>
+                                    <p class="text-sm text-muted-foreground mb-4">Ici sera intégré votre calendrier Calendly pour permettre aux visiteurs de réserver directement leur appel clarté.</p>
+                                    <a href="#" class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 text-primary-foreground bg-accent hover:bg-accent/90">Réserver mon Appel Clarté</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- =========== Footer =========== -->
+        <footer class="bg-primary text-primary-foreground py-16">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
+                    <div class="md:col-span-2">
+                        <h3 class="text-2xl font-bold mb-2">Julien Leroux</h3>
+                        <p class="text-white/80 text-lg mb-4">L'Architecte de la Clarté</p>
+                        <p class="text-primary-foreground/80 leading-relaxed">Coaching pour professionnels, cadres et dirigeants.<br>Paris &amp; Visioconférence.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4">Navigation</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#approche" class="text-primary-foreground/80 hover:text-accent transition-colors cursor-pointer">Mon Approche</a></li>
+                            <li><a href="#accompagnements" class="text-primary-foreground/80 hover:text-accent transition-colors cursor-pointer">Accompagnements</a></li>
+                            <li><a href="#temoignages" class="text-primary-foreground/80 hover:text-accent transition-colors cursor-pointer">Témoignages</a></li>
+                            <li><a href="#contact" class="text-primary-foreground/80 hover:text-accent transition-colors cursor-pointer">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4">Contact</h4>
+                        <div class="space-y-3 text-primary-foreground/80">
+                            <div class="flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                                <a href="mailto:julien.leroux.coach@emailpro.com" class="hover:text-accent transition-colors">julien.leroux.coach@emailpro.com</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                <a href="tel:+33612345678" class="hover:text-accent transition-colors">+33 6 12 34 56 78</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <span>15, rue de la Paix, 75002 Paris</span>
+                            </div>
+                             <div class="flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                <a href="https://linkedin.com/in/julien-leroux-coach" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">LinkedIn</a>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-primary-foreground/20 pt-8 mt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-primary-foreground/60">
+                        <div class="flex flex-wrap gap-4 text-sm">
+                            <a href="#" class="hover:text-accent transition-colors">Mentions Légales</a>
+                            <a href="#" class="hover:text-accent transition-colors">Politique de Confidentialité</a>
+                            <a href="#" class="hover:text-accent transition-colors">CGV</a>
+                        </div>
+                        <p class="text-sm text-center md:text-right">© 2024 Julien Leroux - Tous droits réservés. Site créé avec clarté par Clartem.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navigation Bar Scroll Effect ---
+            const nav = document.getElementById('navbar');
+            const handleScroll = () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-soft', 'border-b', 'border-border');
+                } else {
+                    nav.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-soft', 'border-b', 'border-border');
+                }
+            };
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Check on initial load
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIconOpen = document.getElementById('menu-icon-open');
+            const menuIconClose = document.getElementById('menu-icon-close');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                menuIconOpen.classList.toggle('hidden');
+                menuIconClose.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when a link is clicked
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
+                });
+            });
+
+            // --- FAQ Accordion ---
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            
+            // Set initial state for the last item (as seen in screenshot)
+            const lastItem = accordionItems[accordionItems.length - 1];
+            if (lastItem) {
+                const lastTrigger = lastItem.querySelector('.accordion-trigger');
+                const lastContent = lastItem.querySelector('.accordion-content');
+                const lastIcon = lastTrigger.querySelector('svg');
+                
+                lastItem.setAttribute('data-state', 'open');
+                lastContent.style.maxHeight = lastContent.scrollHeight + "px";
+                lastIcon.style.transform = 'rotate(180deg)';
+            }
+
+
+            accordionItems.forEach(item => {
+                const trigger = item.querySelector('.accordion-trigger');
+                const content = item.querySelector('.accordion-content');
+                const icon = trigger.querySelector('svg');
+
+                trigger.addEventListener('click', () => {
+                    const isOpen = item.getAttribute('data-state') === 'open';
+
+                    // Close all other items
+                    accordionItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.setAttribute('data-state', 'closed');
+                            otherItem.querySelector('.accordion-content').style.maxHeight = '0';
+                            otherItem.querySelector('.accordion-trigger svg').style.transform = 'rotate(0deg)';
+                        }
+                    });
+
+                    // Toggle the clicked item
+                    if (isOpen) {
+                        item.setAttribute('data-state', 'closed');
+                        content.style.maxHeight = '0';
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        item.setAttribute('data-state', 'open');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+            
+             // --- Smooth scroll for all anchor links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
